@@ -34,7 +34,7 @@ Bueno sin más preambulos, comencemos con la máquina...
 Comenzaré haciendo un *Port discovery* o bien, en Español, un *Escaneo de puertos*. Para ello haré uso de nmap:
 
 ```bash
-nmap -vvv -sS --open -n -Pn -p- --min-rate 5000 10.10.126.105 -oG ports
+nmap -vvv -sS --open -n -Pn -p- --min-rate 5000 10.10.28.212 -oG ports
 ```
 
 * **-vvv**: verbose con máximo despliegue de información.
@@ -51,7 +51,7 @@ nmap -vvv -sS --open -n -Pn -p- --min-rate 5000 10.10.126.105 -oG ports
 **Ya con los puertos abiertos en mano, procederé a hacer un escaneo más exhaustivo de de estos:**
 
 ```bash
-nmap -p80,135,139,443,445,3306,8080,49152,49154,49158,49159 -sV -sC 10.10.126.105 -oN nmap
+nmap -p80,135,139,443,445,3306,8080,49152,49154,49158,49159 -sV -sC 10.10.28.212 -oN nmap
 ```
 
 * **-p**: me permite indicarle los puertos a escanear.
@@ -69,7 +69,7 @@ la herramienta [smbclient]() para enumerar los recursos compartidos que tenga la
 Comenzaré listando las comparticiones sin hacer uso de credenciales (*null-session*):
 
 ```bash
-smbclient -L 10.10.126.105 -N
+smbclient -L 10.10.28.212 -N
 ```
 
 * **-L**: solicitamos el listado de recursos compartidos.
@@ -86,7 +86,7 @@ Con smbclient probaremos el acceso a ambos recursos y veremos si hay algo intere
 Al parecer este es el directorio por defecto de usuarios en el sistema. Al recorrer sus directorios, no di con nada interesante:
 
 ```bash
-smbclient //10.10.126.105/Users -N
+smbclient //10.10.28.212/Users -N
 ```
 ![Imágen del escaneo](/assets/img/thm/blueprint/smb-users-share.png)
 
@@ -95,7 +95,7 @@ smbclient //10.10.126.105/Users -N
 Enumerando de forma rápida este recurso, veo que no permite descargas, ni carga, de ficheros/directorios. Por lo que no nos sirve de mucho.
 
 ```bash
-smbclient //10.10.126.105/Windows -N
+smbclient //10.10.28.212/Windows -N
 ```
 
 ![Imágen del escaneo](/assets/img/thm/blueprint/smb-windows-share.png)
@@ -113,7 +113,7 @@ En este caso, con una me basta (lo ideal es probar con más de una si no estás 
 Como se observa hay un Microsoft IIS de versión 7.5 y la página principal en el navegador responde con un código de estado 404. 
 
 ```bash
-whatweb http://10.10.126.105/
+whatweb http://10.10.28.212/
 ```
 
 ![Imágen del escaneo](/assets/img/thm/blueprint/whatweb-80.png)
@@ -134,7 +134,7 @@ Analizando la captura, lo suyo sería chequear que estos servicios, y tecnologí
 el hecho de que están desactualizadas). 
 
 ```bash
-whatweb http://10.10.126.105:8080/
+whatweb http://10.10.28.212:8080/
 ```
 
 ![Imágen del escaneo](/assets/img/thm/blueprint/whatweb-8080.png)
@@ -219,7 +219,7 @@ Luego en mi equipo hice una mountra de tipo *cifs* con el objetivo de mover más
 
 ```bash 
 mkdir /mnt/remote_dir
-mount -t cifs //10.10.126.105/Users /mnt/remote_dir
+mount -t cifs //10.10.28.212/Users /mnt/remote_dir
 ```
 ![Transfiriendo SAM/SYSTEM](/assets/img/thm/blueprint/sam-system-transfered.png)
 
