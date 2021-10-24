@@ -1,19 +1,26 @@
 ---
 title: Blueprint - Write up (TryHackMe)
 author: sha-16
-date: 2021-10-09 13:58:00 -0300 
+date: 2021-10-23 23:40:00 -03000 
 categories: [TryHackMe]
 tags: [write-up, windows]
 math: true
 mermaid: true
 image:
-  src: /commons/thm/blueprint/banner/blueprint-banner.png
+  src: /assets/img/thm/blueprint/blueprint-banner.png
   width: 800
   height: 500
 ---
 
 Este será el primer Write up de mi blog. Partiré suave con una máquina Windows de dificultad fácil en TryHackMe. 
 Su nombre es [Blueprint](https://tryhackme.com/room/blueprint).
+
+Para el que desee ver el video en YouTube solo pinche por [aquí](https://youtu.be/EUKPbAxOSyQ)...
+
+![Video de YouTube](/assets/img/thm/blueprint/youtube-video.png)
+
+
+## TryHackMe y conexiones por VPN
 
 > Como ya sabrán algunos, para auditar máquinas en TryHackMe debemos conectarnos a una VPN mediante OpenVPN. Esto nos permitirá hacer como si nuestro equipo y el de TryHackMe estuvieran en la misma red.
 
@@ -39,7 +46,7 @@ nmap -vvv -sS --open -n -Pn -p- --min-rate 5000 10.10.126.105 -oG ports
 * **--min-rate**: señalamos la cantidad mínima de paquetes a enviar por segundo (en este caso indicamos 5000).
 * **-oG**: solicitamos que output de la captura se almacene en formato grepeable en el fichero indicado (en mi caso es el archivo *ports*). 
 
-![Imágen de los puertos abiertos](/commons/thm/blueprint/imgs/port-discovery.png)
+![Imágen de los puertos abiertos](/assets/img/thm/blueprint/port-enum.png)
 
 **Ya con los puertos abiertos en mano, procederé a hacer un escaneo más exhaustivo de de estos:**
 
@@ -52,7 +59,7 @@ nmap -p80,135,139,443,445,3306,8080,49152,49154,49158,49159 -sV -sC 10.10.126.10
 * **-sC**: me permite utilizar los scripts por defecto que tiene la herramienta nmap para enumerar los servicios que estén corriendo en los puertos.
 * **-oN**: solicitamos que el output del escaneo se almacene en un fichero en un formato normal (en mi caso lo almaceno en el fichero *nmap*).  
 
-![Imágen del escaneo](/commons/thm/blueprint/imgs/enum-scan.png)
+![Imágen del escaneo](/assets/img/thm/blueprint/services-enum.png)
 
 ## **Enumeración de servicio SMB**
 
@@ -70,7 +77,7 @@ smbclient -L 10.10.126.105 -N
 
 Como podemos ver tenemos dos recursos asequibles; aquellos que no tienen el símbolo de dolar ($).
 
-![Imágen del escaneo](/commons/thm/blueprint/imgs/smb-enum.png)
+![Imágen del escaneo](/assets/img/thm/blueprint/smb-resources.png)
 
 Con smbclient probaremos el acceso a ambos recursos y veremos si hay algo interesante por ver:
 
@@ -81,7 +88,7 @@ Al parecer este es el directorio por defecto de usuarios en el sistema. Al recor
 ```bash
 smbclient //10.10.126.105/Users -N
 ```
-![Imágen del escaneo](/commons/thm/blueprint/imgs/smb-users.png)
+![Imágen del escaneo](/assets/img/thm/blueprint/smb-users-share.png)
 
 ##### **2) Windows:** 
 
@@ -91,7 +98,7 @@ Enumerando de forma rápida este recurso, veo que no permite descargas, ni carga
 smbclient //10.10.126.105/Windows -N
 ```
 
-![Imágen del escaneo](/commons/thm/blueprint/imgs/smb-windows.png)
+![Imágen del escaneo](/assets/img/thm/blueprint/smb-windows-share.png)
 
 
 ## **Enumeración de servicios HTTP**
@@ -109,11 +116,11 @@ Como se observa hay un Microsoft IIS de versión 7.5 y la página principal en e
 whatweb http://10.10.126.105/
 ```
 
-![Imágen del escaneo](/commons/thm/blueprint/imgs/whatweb.png)
+![Imágen del escaneo](/assets/img/thm/blueprint/whatweb-80.png)
 
 **Código de estado 404 en el navegador:** 
 
-![Imágen del resultado](/commons/thm/blueprint/imgs/browser-404-capture.png)
+![Imágen del resultado](/assets/img/thm/blueprint/404-not-found.png)
 
 Buscando algún exploit, para el servicio **Microsft IIS 7.5**, no di con nada que fuera útil (lo ideal hubiera sido dar
 con algo que me permitierá hacer algún RCE, File Upload, Path Traversal, etc). 
@@ -130,23 +137,21 @@ el hecho de que están desactualizadas).
 whatweb http://10.10.126.105:8080/
 ```
 
-![Imágen del escaneo](/commons/thm/blueprint/imgs/whatweb2.png)
+![Imágen del escaneo](/assets/img/thm/blueprint/whatweb-8080.png)
 
 **Para ahondar más, continue la enumeración mediante el mismo navegador:**
 
-![Imágen del resultado](/commons/thm/blueprint/imgs/browser-oscommerce.png)
-
-![Imágen del resultado](/commons/thm/blueprint/imgs/browser-oscommerce-2.png)
+![Imágen del resultado](/assets/img/thm/blueprint/oscommerce-found.png)
 
 Como vemos, pareciera ser que el servicio web se integra por directorios y ficheros de una especie de CMS llamado **OSCommerce (de versión 2.3.4)**.
 
 Analizando y enterandome de qué es esto, di de forma acertada con que es un tipo de Gestor de contenidos enfocado al comercio electrónico. 
 
-![Imágen de la busqueda](/commons/thm/blueprint/imgs/enum-oscommerce.png)
+![Imágen de la busqueda](/assets/img/thm/blueprint/oscommerce-enum.png)
 
 Ahondando un poco más, encontré con un exploit para la versión 2.3.4 que nos permite hacer ejecución remota de comandos:
 
-![Imágen del exploit](/commons/thm/blueprint/imgs/oscommerce-exploit.png)
+![Imágen del exploit](/assets/img/thm/blueprint/oscommerce-exploit.png)
 
 
 ## **Explotación y escalación de privilegios**
@@ -154,13 +159,13 @@ Ahondando un poco más, encontré con un exploit para la versión 2.3.4 que nos 
 Haciendo ejecución del exploit hice el Remote Command Execution (RCE) y para variar gane acceso al sistema como **NT Authority\System**, o sea practicamente 
 como el usuario Administrator con control total del equipo.  
 
-![Imágen del exploit ejecutado](/commons/thm/blueprint/imgs/rce-exploit.png)
+![Imágen del exploit ejecutado](/assets/img/thm/blueprint/exploit-execution.png)
 
 Pero aquí no termina todo. Por ahora tenemos una shell medianamente interactiva, que corresponde unicamente a un exploit de RCE. Lo ideal sería montarnos una *Reverse Shell*.
 Para ello vamos a tratar de meter el binario de netcat al Windows. Por eso, primero debemos tenerlo en nuestra máquina local y abrir un servidor HTTP en el directorio que esté
 se encuentra (en mi caso abro el servicio con Python3):
 
-![Imágen del binario en nuestra máquina y de la apertura del servicio HTTP](/commons/thm/blueprint/imgs/share-netcat.png)
+![Imágen del binario en nuestra máquina y de la apertura del servicio HTTP](/assets/img/thm/blueprint/sharing-netcat.png)
 
 Por otro lado, en la máquina remota hago uso de la utilidad nativa de Windows, **Certutil.exe**, para descargar el binario de mi servicio HTTP.
 
@@ -176,7 +181,7 @@ rlwrap nc -nlvp 443
 
 Ahora desde el Windows, ejecutaré el netcat entablar una conexión y ejecutarme una CMD luego de hacerlo:
 
-![Imágen ya dentro de la máquina completamente](/commons/thm/blueprint/imgs/reverse-shell.png)
+![Imágen ya dentro de la máquina completamente](/assets/img/thm/blueprint/reverse-shell.png)
 
 De esta forma, ya estoy completamente dentro.
 
@@ -204,11 +209,11 @@ C:\Users\Public\Domcuments>reg save HKLM\SAM .\SAM.bak
 C:\Users\Public\Domcuments>reg save HKLM\SYSTEM .\SYSTEM.bak
 ``` 
 
-![SAM.bak y SYSTEM.bak](/commons/thm/blueprint/imgs/sam-system-bak.png)
+![SAM.bak y SYSTEM.bak](/assets/img/thm/blueprint/sam-system-bak.png)
 
 **Acá podemos ver a SAM.bak y SYSTEM.bak en los recursos compartidos:**
  
-![SAM y SYSTEM en el SMB](/commons/thm/blueprint/imgs/sam-system-smb.png)
+![SAM y SYSTEM en el SMB](/assets/img/thm/blueprint/sam-system-shared.png)
 
 Luego en mi equipo hice una mountra de tipo *cifs* con el objetivo de mover más rapidamente la SAM y el SYSTEM a mi sistema:
 
@@ -216,18 +221,18 @@ Luego en mi equipo hice una mountra de tipo *cifs* con el objetivo de mover más
 mkdir /mnt/remote_dir
 mount -t cifs //10.10.126.105/Users /mnt/remote_dir
 ```
-![Transfiriendo SAM/SYSTEM](/commons/thm/blueprint/imgs/cp-sam-system.png)
+![Transfiriendo SAM/SYSTEM](/assets/img/thm/blueprint/sam-system-transfered.png)
 
 
 Ya con la SAM y el SYSTEM hago uso de la utilidad [samdump2]() para volcar las credenciales: 
 
-![Volcado de hashes](/commons/thm/blueprint/imgs/dump-hashes.png)
+![Volcado de hashes](/assets/img/thm/blueprint/dumping-hashes.png)
 
 Como ven debemos extraer la parte que nos interesa del Hash de Lab.
 
 Para desencriptarlo podemos tirar de John, Hashcat, etc., pero yo en este caso fui por [Crackstation]() (que hace algo parecido pero desde la web). Este me entrego el valor del hash en texto claro en cosa de segundos: 
 
-![Imágen de crackstation con la contraseña crackeada](/commons/thm/blueprint/imgs/hash-cracked.png)
+![Imágen de crackstation con la contraseña crackeada](/assets/img/thm/blueprint/hash-cracked.png)
 
 Y pues bueno, el Write up está terminado! Espero haberte sido de ayuda, tengo un canal de YouTube por si quieres estar más atento a las cosas que estoy haciendo, pronto 
 haré alguna que otra pasada por Twitch, etc.

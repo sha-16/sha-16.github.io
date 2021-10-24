@@ -2,18 +2,22 @@
 #  Icons from <https://fontawesome.com/>
 
 platforms:
-  -
-    type: Twitter
-    icon: "fab fa-twitter"
-    link: "https://twitter.com/intent/tweet?text=TITLE&url=URL"
-  -
-    type: Facebook
-    icon: "fab fa-facebook-square"
-    link: "https://www.facebook.com/sharer/sharer.php?title=TITLE&u=URL"
-  -
-    type: Telegram
-    icon: "fab fa-telegram"
-    link: "https://telegram.me/share?text=TITLE&url=URL"
+    -
+      type: github
+      icon: 'fab fa-github'
+      link: 'https://github.com/sha-16'
+    -
+      type: instagram
+      icon: 'fab fa-instagram'
+      link: 'https://instagram.com/sha16_x'
+    -
+      type: youtube
+      icon: 'fab fa-youtube'
+      link: 'https://www.youtube.com/channel/UCZrqUzohXiWRaJ7YdhVpZqA/videos'
+    -
+      type: twitch 
+      icon: 'fab fa-twitch'
+      link: 'https://twitch.tv/sha_16_/'
 
   # Uncomment below if you need to.
   # -

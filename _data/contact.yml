@@ -3,18 +3,21 @@
 -
   type: github
   icon: 'fab fa-github'
+  url: 'https://github.com/sha-16'
 -
-  type: twitter
-  icon: 'fab fa-twitter'
+  type: instagram
+  icon: 'fab fa-instagram'
+  url: 'https://instagram/sha16_x'
 -
-  type: email
-  icon: 'fas fa-envelope'
-  noblank: true            # open link in current tab
+  type: youtube
+  icon: 'fab fa-youtube'
+  url: 'https://www.youtube.com/channel/UCZrqUzohXiWRaJ7YdhVpZqA/videos'
 -
-  type: rss
-  icon: 'fas fa-rss'
-  noblank: true
+  type: twitch 
+  icon: 'fab fa-twitch'
+  url: 'https://twitch.tv/sha_16_/'
 
+  
 # Uncomment and complete the url below to enable more contact options
 # -
 #   type: mastodon
