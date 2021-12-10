@@ -16,37 +16,37 @@ Es un software que asegura que una aplicación (con sus respectivas dependencias
 
 ## ¿Para qué nos sirve? 🧨
 
-Permite que una aplicación, junto con sus dependencias, esté contenida en una especie de SandBox. Un entorno dedicado para la App. 
+Para que una aplicación, junto con sus dependencias, esté contenida en una especie de SandBox. Basicamente, se encapsula a la app en un entorno configurado a su medida.  
 
 
 
 ## ¿Por qué Docker? ⚔
 
-Evita que hayan conflictos entre dependencias y versiones de un App con otra que se encuentran en un mismo servidor. Por otro lado Docker hace mucho más facil la tarea de mover una aplicación de una máquina a otra sin problemas compatibilidad.
+Evita que hayan conflictos entre dependencias y versiones de una app con otras que se encuentren en el mismo servidor. Por otro lado Docker hace mucho más facil la tarea de mover una aplicación de una máquina a otra sin problemas compatibilidad.
 
 Con esto se acabó lo de: 
 > En mi máquina funciona...
 
-Por otro lado, si un atacante consiguiera ejecución remota de comandos a través de una App, sólo lograría acceder al contenedor y no al servidor como tal. Es un plus de seguridad que no viene nada mal.
+Algo interesante de las aplicaciones desplegadas en contenedores, es que si un atacante consigue ejecución remota de comandos por medio de estas, sólo logrará ganar acceso al contenedor y no al servidor como tal. Es un plus de seguridad que no viene nada mal.
 
 
 
 ## ¿Cómo es la estructura de Docker? ⛓
 
-* **Infraestructura**: El servidor que posee al OS. 
-* **Sistema Operativo**: Está corriendo a Docker.
-* **Docker**: Programa encargado de mantener a los contenedores.
-* **Contenedores**: Entornos dedicados para aplicaciones.
+* **Infraestructura**: Hay un servidor que posee un OS. 
+* **Sistema Operativo**: Este tiene instalado Docker.
+* **Docker**: Es el programa encargado de mantener y arrancar a los contenedores.
+* **Contenedores**: SoneEntornos dedicados y hechos a medida para aplicaciones.
 
-> Los contenedores de Docker lo único que comparten es el mismo Kernel del Sistema Operativo. Por eso es que un contendor puede estar corriendo con un Ubuntu, un Debian, CentOS, etc (comparten el Kernel de Linux).  
+> Lo único que comparten entre sí los contenedores de Docker, es el Kernel Linux. Por eso es que un contendor puede estar corriendo con un Ubuntu, un Debian, CentOS, etc.  
 
 Docker utiliza una imágen para correr un contendor. Esta imagen se compone de: 
 
-* **Sistema Operativo**
-* **Aplicación**
-* **Software (dependencias, software de servicios, librerías, etc)**
+* **Un Sistema Operativo**
+* **Una Aplicación**
+* **Software (que incluye dependencias, software de servicios, librerías, etc)**
 
-> Para crear una imagen de Docker debemos hacer y preescribir las instrucciones de esto en un Dockerfile. 
+> Para crear una imagen de Docker debemos previamente escribir las instrucciones de esto en un Dockerfile. 
 
 
 
@@ -58,12 +58,10 @@ RUN apt-get install apache2
 CMD [ "apache2" ]
 ``` 
 
-
-
 ## Nota importante 📌
 
-Es importante que antes de crear nuestra propia imagen, miremos en los repositorios oficiales de Docker Hub si alguien más ya creo¿ó una imagen con las dependencias que necesitamos para correr nuestra App. 
-Por un lado esto nos ahorraría trabajo, y por otro podemos evitar acarrear malas practicas a la hora de crear el Dockerfile para la imagen. 
+Es importante que antes de crear nuestra propia imagen, miremos en los repositorios oficiales de Docker Hub si alguien más ya creó una imagen con las dependencias que necesitamos para correr nuestra aplicación. 
+Por un lado esto nos ahorraría trabajo, y por otro nos evitaría poder acarrear malas practicas a la hora de crear el Dockerfile para la imagen. 
 
 > Es una buena prática utilizar imagenes oficiales que hayan en Docker Hub y que sean de última versión.
 
@@ -83,7 +81,7 @@ mkdir main
 
 * Lo segundo es irnos al sitio web de Docker Hub y seleccionar la Tag de una imagen que se adapte a lo que nosotros necesitamos para montar nuestra propia App en un contendor con sus respectivas dependencias, versiones, librerías, etc. 
 
-* Lo tercero es escribir el Dockerfile para hacer arrancar y construir nuestro contenedor, en este caso usé la Tag de Python:
+* Lo tercero es escribir el Dockerfile para arrancar y construir nuestro contenedor, en este caso usé la Tag de Python:
 > 3.11.0a2-bullseye
 
 ```bash
