@@ -36,7 +36,7 @@ Algo interesante de las aplicaciones desplegadas en contenedores, es que si un a
 * **Infraestructura**: Hay un servidor que posee un OS. 
 * **Sistema Operativo**: Este tiene instalado Docker.
 * **Docker**: Es el programa encargado de mantener y arrancar a los contenedores.
-* **Contenedores**: SoneEntornos dedicados y hechos a medida para aplicaciones.
+* **Contenedores**: Son entornos hechos a la medida para una o varias aplicaciones.
 
 > Lo único que comparten entre sí los contenedores de Docker, es el Kernel Linux. Por eso es que un contendor puede estar corriendo con un Ubuntu, un Debian, CentOS, etc.  
 
