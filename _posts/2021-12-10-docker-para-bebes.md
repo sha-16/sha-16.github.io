@@ -16,7 +16,7 @@ Es un software que asegura que una aplicación (con sus respectivas dependencias
 
 ## ¿Para qué nos sirve? 🧨
 
-Para que una aplicación, junto con sus dependencias, esté contenida en una especie de SandBox. Basicamente, se encapsula a la app en un entorno configurado a su medida.  
+Para que una aplicación, junto con sus dependencias, esté contenida en una especie de SandBox. Básicamente, se encapsula a la app en un entorno configurado a su medida.  
 
 
 
