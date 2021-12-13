@@ -18,6 +18,7 @@ Como Docker nos permite aislar entornos, significa que podemos tener multiples a
 
 Antiguamente se utilizaban máquinas virtuales para aislar entornos, lo que hoy en día es algo nefasto e ineficiente (**¿Por qué?** básicamente porque es un execesivo e innecesario consumo recursos). 
 
+
 ## Máquinas Virtuales VS Contenedores 💕
 
 
@@ -60,96 +61,95 @@ Es un repositorio centralizado de Docker donde se comparten diferentes imágenes
 
 ## Comandos básicos 👀⚡
 
-1. **Instalación y arranque de un contenedor**: 
+**Instalación y arranque de un contenedor**: 
 ```bash
 $ docker run <image/tag>
 ```
 
-2. **Listar las imagenes instaladas en el servidor**:
+**Listar las imagenes instaladas en el servidor**:
 ```bash
 $ docker images
 ```
 
-3. **Buscar una imagen de Docker Hub por terminal**:
+**Buscar una imagen de Docker Hub por terminal**:
 ```bash
 $ docker search <image/tag>
 ```
 
-4. **Descargar una imagen**: 
+**Descargar una imagen**: 
 ```bash
 $ docker pull <image/tag>
 ```
 
-5. **Ejecutar un comando en el contenedor**:
+**Ejecutar un comando en el contenedor**:
 ```bash 
 $ docker run <tag> <command>
 ```
-7. **Ejecutar un inteprete bash, o sh, de forma interactiva en el contenedor**: 
+**Ejecutar un inteprete bash, o sh, de forma interactiva en el contenedor**: 
 ```bash 
 $ docker run -it <tag> bash 
 $ docker run -it <tag> sh 
 ```
 
-7. **Listar los contenedores que estén corriendo en el servidor**: 
+**Listar los contenedores que estén corriendo en el servidor**: 
 ```bash
 $ docker ps
 $ docker ps -a (muestra el historial de los contendores que estuvieron corriendo)
 ```
 
-8. **Eliminar un contendor**:
+**Eliminar un contendor**:
 ```bash
 $ docker rm <container-id/name>
 ```
 
-9. **Arrancar un contenedor nuevamente**: 
+**Arrancar un contenedor nuevamente**: 
 ```bash
 $ docker start <container-id> (este puede estar detenido pero ser visualizado con docker ps -a)
 ```
 
-10. **Detener un contenedor corriendo**:
+**Detener un contenedor corriendo**:
 ```bash
 $ docker stop <container-id>
 ```
 
-11. **Visualizar un puerto interno del contenedor en uno de nuestro servidor local (tunelizamos su salida)**:
+**Visualizar un puerto interno del contenedor en uno de nuestro servidor local (tunelizamos su salida)**:
 ```bash
 $ docker run -p <local-port>:<container-port> <tag>
 ```
 
-12. **Visualizar un puerto interno del contenedor en varios puertos de nuestro servidor local (tunelizamos las salida)**:
+**Visualizar un puerto interno del contenedor en varios puertos de nuestro servidor local (tunelizamos las salida)**:
 ```bash
 $ docker run -p <local-port>:<container-port> -p <local-port>:<container-port> -p <local-port>:<container-port> <tag>
 ```
 
-13. **Arrancar un contenedor en segundo plano (Detached Mode / Modo  Independiente)**:
+**Arrancar un contenedor en segundo plano (Detached Mode / Modo  Independiente)**:
 ```bash
 $ docker run -p <local-port>:<container-port> -d <tag>
 ```
 
-14. **Listar los IDs de todos los contendores**:
+**Listar los IDs de todos los contendores**:
  ```bash
 $ docker ps -q
 $ docker ps -aq (considera a los contenedores que hace poco fueron detenidos)
 ```
 
-15. **Asignar un nombre a contenedor al arrancarlo**:
+**Asignar un nombre a contenedor al arrancarlo**:
 ```bash
 $ docker run --name <container-name> <tag>
 ```
 
-16. **Forzar opciones de Docker**: 
+**Forzar opciones de Docker**: 
 ```bash
 $ docker rm -f <container-id> (forzamos la eliminación de un contenedor)
 $ docker rmi -f <image> (forzamos la eliminación de una imagen)
 ```
 
-17. **Establecer variables de entorno en el contenedor**:
-
+**Establecer variables de entorno en el contenedor**:
 ```bash
 $ docker run -e <env-variable> <tag>
 ```
 
-18. **Establecer un formato de salida al listado de contenedores**:
+**Establecer un formato de salida al listado de contenedores**:
 ```bash
 $ docker ps -a --format="format"
 $ docker ps --format="format"
@@ -157,18 +157,18 @@ $ docker ps -a --format="\n[*] ID: {{.ID}}\n[*] Name: {{.Name}}"
 ```
 
 
-19. **Montar un volumen del servidor local en el contenedor**: 
+**Montar un volumen del servidor local en el contenedor**: 
 ```bash
 $ docker run -v <local-dir>:<container-dir> <tag>
 ```
 * **Nota**: un volumen es basicamente el contenido de un directorio de nuestro servidor. Este contenido se copia en dentro del volumen del contenedor. Esto significa que cualquier cambio que se haga en los volumenes va a ocurrir tanto en el servidor como en el contenedor, lo que genera persistencia de los datos.
 
-20. **Ejecutar comandos en un contenedor arrancado**:
+**Ejecutar comandos en un contenedor arrancado**:
 ```bash
 $ docker exec <container-id> <command>
 ```
 
-21. **Abrir una terminal interactiva en un contenedor arrancado**:
+**Abrir una terminal interactiva en un contenedor arrancado**:
 ```bash
 $ docker exec -it <container-id> bash (nos abre una terminal interactiva con bash en el contenedor arrancado)
 $ docker exec -it <container-id> sh (nos abre una terminal interactiva con sh en el contenedor arrancado)
