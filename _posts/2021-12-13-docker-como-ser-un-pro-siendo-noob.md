@@ -8,18 +8,15 @@ math: true
 mermaid: true
 ---
 
-Docker nos sirve principamente para encapsular a una aplicación con sus respectivas dependencias.
+Docker nos sirve principamente para encapsular aplicaciones con sus respectivas dependencias. Lo cual significa que, estas pueden correr en cualquier máquina.
 
-Esto a su vez permite que la app se puede exportar de PC a PC sin problemas de compatibilidad. Incluso nos permitiría poder pasar una app de un entorno de desarrollo a uno de producción. 
+Esto a su vez permite que una app se puede exportar de PC a PC sin problemas de compatibilidad.
 
-Docker nos permite correr una aplicación con sus respectivas dependencias en cualquier máquina. 
+Con Docker basicamente encapsulamos a una aplicación en un entorno dedicado para sí, hecho completamente a su medida para correr.
 
-Encapsulamos a la aplicación en un entorno, de forma que tenga lo que necesita para correr.
+Como Docker nos permite aislar entornos, significa que podemos tener multiples aplicaciones en un mismo servidor con distintas dependencias y diferentes versiones de estas.
 
-Docker nos permite aislar entornos. Con este software podemos tener multiples aplicaciones en un mismo servidor con distintas dependencias y diferentes versiones de estas.
-
-Antiguamente se utilizaban máquinas virtuales para aislar entornos, lo que es hoy en día es algo nefasto e ineficiente (**¿Por qué?** básicamente porque es un execesivo e innecesario consumo recursos). 
-
+Antiguamente se utilizaban máquinas virtuales para aislar entornos, lo que hoy en día es algo nefasto e ineficiente (**¿Por qué?** básicamente porque es un execesivo e innecesario consumo recursos). 
 
 ## Máquinas Virtuales VS Contenedores 💕
 
