@@ -1,7 +1,7 @@
 ---
 title: Docker - Cómo ser un pro siendo noob 💣
 author: sha-16
-date: 2021-13-10 17:30:00 -03000 
+date: 2021-12-13 17:30:00 -03000 
 categories: [Docker]
 tags: [docker, guide]
 math: true
