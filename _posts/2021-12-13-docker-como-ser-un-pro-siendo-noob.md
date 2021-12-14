@@ -4,8 +4,13 @@ author: sha-16
 date: 2021-12-13 17:30:00 -03000 
 categories: [Docker]
 tags: [docker, guide]
+image: []
 math: true
 mermaid: true
+image:
+  src: https://babel.es/WebBabel/media/BlogImages/Docker_BABEL_2.png 
+  width: 800
+  height: 500
 ---
 
 Docker nos sirve principamente para encapsular aplicaciones con sus respectivas dependencias. Lo cual significa que, estas pueden correr en cualquier máquina.
@@ -162,6 +167,12 @@ $ docker ps -a --format="\n[*] ID: {{.ID}}\n[*] Name: {{.Name}}"
 $ docker run -v <local-dir>:<container-dir> <tag>
 ```
 * **Nota**: un volumen es basicamente el contenido de un directorio de nuestro servidor. Este contenido se copia en dentro del volumen del contenedor. Esto significa que cualquier cambio que se haga en los volumenes va a ocurrir tanto en el servidor como en el contenedor, lo que genera persistencia de los datos.
+
+**Exponer un puerto del contenedor en una red de contenedores**:
+```bash 
+$ docker run --expose <port> <tag>
+```
+* **Nota**: algunas imágenes ya traen habilitada esta opción por defecto aunque, como buena práctica, nunca viene mal señalarlo. Sobre todo si más adelante vamos a llevar nuestro proyecto a un entorno de producción.
 
 **Ejecutar comandos en un contenedor arrancado**:
 ```bash
