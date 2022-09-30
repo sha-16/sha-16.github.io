@@ -16,7 +16,7 @@ timezone: America/Santiago
 
 title: sha-16                          # the main title
 
-tagline: Junior Pentester / Hacker Ético   # it will display as the sub-title
+tagline: ❤ Pentester / Red Team     # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, portfolio, sidebar,
