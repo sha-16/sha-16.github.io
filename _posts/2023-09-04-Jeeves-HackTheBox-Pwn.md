@@ -19,7 +19,7 @@ Al analizar el código Assembler se identifican dos instrucciones importantes en
 
 Primeramente se asigna el valor `0xdeadc0d3` al registro `rbp-4` , a través de la instrucción **MOV**.
 
-```python
+```jsx
 0x00005555555551f5 <+12>:    mov    DWORD PTR [rbp-0x4],0xdeadc0d3
 ```
 
@@ -65,7 +65,7 @@ Sin embargo, para lograr el desafío de HTB no podemos usar **gdb**, debemos log
 
 Para esto, primeramente podemos identificar que se configura el input del usuario, el cual como límite debe ser una cadena de 44 bytes:
 
-```jsx
+```c
 char user_name [44];
 int flag_content;
 void *flag_length;
