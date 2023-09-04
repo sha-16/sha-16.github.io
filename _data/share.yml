@@ -7,9 +7,9 @@ platforms:
       icon: 'fab fa-github'
       link: 'https://github.com/sha-16'
     -
-      type: instagram
-      icon: 'fab fa-instagram'
-      link: 'https://instagram.com/sha16_x'
+      type: twitter
+      icon: 'fab fa-twitter'
+      url: 'https://twitter.com/sha16_x'
     -
       type: youtube
       icon: 'fab fa-youtube'

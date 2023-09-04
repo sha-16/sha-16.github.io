@@ -5,9 +5,9 @@
   icon: 'fab fa-github'
   url: 'https://github.com/sha-16'
 -
-  type: instagram
-  icon: 'fab fa-instagram'
-  url: 'https://instagram.com/sha16_x'
+  type: twitter
+  icon: 'fab fa-twitter'
+  url: 'https://twitter.com/sha16_x'
 -
   type: youtube
   icon: 'fab fa-youtube'
