@@ -102,7 +102,7 @@ Buenos en base a mi experiencia mis recomendaciones de cara al examen son las si
 
 Bueno, ya llegando al final de este post, puedo decirles que este examen no fue la mejor experiencia que he tenido, de hecho la pasé bastante mal ya que reprobé en mi primer intento.
 
-**Día 0: Me entran las ganas de rendir el examen**
+#### Día 0: Me entran las ganas de rendir el examen
 
 Todo empieza en Marzo 2023, cuando le digo a mi amigo [H4rr1z0n](https://github.com/Harrizzon): *“mano, voy a sacar el eWPTXv2 en un mes”*. Y así fue, sólo que lo saqué en un mes y medio.
 
@@ -114,7 +114,7 @@ Otra cosa que me sirvió mucho fue montarme mini aplicaciones vulnerables, a mod
 
 Ya con esto, el resto lo dejé medio a la vida y me apoyé más de la experiencia previa que había ido adquiriendo en el trabajo y en otros laboratorios que había hecho en HackTheBox y TryHackme (más de 150 máquinas).
 
-**Día D: Experiencia y resultados del examen**
+#### Día D: Experiencia y resultados del examen
 
 En total, resolviendo el laboratorio en el primer intento me demoré 3 días. En este plazo ya tenía los 3 requisitos mínimos pero no suficientes para aprobar, junto con otro puñado de vulnerabilidades, medias y bajas, para reportar.
 
