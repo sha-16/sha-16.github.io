@@ -87,7 +87,7 @@ No quiero dar spoilers, pero las vulnerabilidades que deben tener bien repasadas
 Buenos en base a mi experiencia mis recomendaciones de cara al examen son las siguientes:
 
 - Estudia y ve tranquilo, no te apures para rendir la certificación, todo a su tiempo. El examen no es fácil, es bastante busquilla de hecho, por lo tanto ríndelo cuando verdaderamente te sientas listo. Con esto no digo que esperes toda tu vida, pero si digo que tengas la seguridad suficiente de lo que sabes como para lanzarte.
-- Existen 3 requisitos mínimos pero no suficientes para aprobar. Por experiencia yo creo que deberían ser 4: `Tm8gcmVwb3J0ZXMgbWVub3MgZGUgMiBTUUwgSW5qZWN0aW9uISBUZSByZXByb2JhcsOhbiBzaSBubyBsbyBoYWNlcyA6J2M=`
+- Existen 3 requisitos mínimos pero no suficientes para aprobar. Por experiencia yo creo que deberían ser 4: `UmVwb3J0YSBtw6FzIGRlIDIgU1FMaSEgRGUgbG8gY29udHJhcmlvIHRlIHJlcHJvYmFyw6FuIDonYw==`
 - *SQLi que encuentras, SQLi que reportas*. Da igual si no tienes data que volcar, repórtalo igual o te reprobarán ☠
 - Aprende a explotar SQLi con SQLMap, usando tokens CSRF.
 - No reportes sólo las vulnerabilidades altas y/o críticas, también contempla hallazgos de criticidad media y/o baja, que por lo común son: clickjacking, ausencia de certificado SSL, etc., no diré más jeje. Podría decirse que se relacionan con la ausencia de implementaciones de seguridad importantes, pero no “críticas”.
