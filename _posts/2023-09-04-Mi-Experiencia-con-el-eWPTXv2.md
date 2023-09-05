@@ -98,7 +98,7 @@ Buenos en base a mi experiencia mis recomendaciones de cara al examen son las si
 - Considerando el punto anterior, si estás seguro de que estás yendo por buen camino, confía en tu corazón y prueba múltiples formas de explotar una vulnerabilidad. Si es necesario, reinicia el laboratorio.
 - ¡Practica! El examen no está regalado.
 
-## Mi experiencia 🗿
+## Experiencia Personal 🗿
 
 Bueno, ya llegando al final de este post, puedo decirles que este examen no fue la mejor experiencia que he tenido, de hecho la pasé bastante mal ya que reprobé en mi primer intento.
 
