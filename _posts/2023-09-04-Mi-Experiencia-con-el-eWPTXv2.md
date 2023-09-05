@@ -43,7 +43,7 @@ En síntesis, es muy importante que estés pulido con los conceptos básicos de 
 
 ### Técnicas de enumeración 📌
 
-De cara al examen, es super importante que sepan emplear técnicas de enumeración ofensivas: fuzzing, volcar directorios "**/.git/**", etc., Lo otro importante es usar el típico guessing (o pensamiento lateral) de los CTFs, en el que cualquier cosa que encuentres *aquí*, probablemente también la encuentres en otra ruta o en la raíz del servidor web.
+De cara al examen, es super importante que sepan emplear técnicas de enumeración ofensivas: fuzzing, volcar directorios `/.git/`, etc., Lo otro importante es usar el típico guessing (o pensamiento lateral) de los CTFs, en el que cualquier cosa que encuentres *aquí*, probablemente también la encuentres en otra ruta o en la raíz del servidor web.
 
 Por experiencia les digo que esto último se adquiere jugando con CTFs, o simplemente probando *a lo loco*, pero para hacerlo sencillo siempre mantengan en mente lo siguiente: *lo que encuentres aquí también podría estar en este otro lugar*.
 
