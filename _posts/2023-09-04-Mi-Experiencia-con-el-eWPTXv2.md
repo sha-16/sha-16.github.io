@@ -17,7 +17,7 @@ Bueno, de ante mano para quienes no sepan qué es el eWPTXv2, esta es la versió
 
 Como ya muchos sabrán, el examen es totalmente práctico y tiene un valor de $400 USD, aunque para abaratar costes siempre les recomiendo mirar en la web si es que hay algún código de descuento *leaked* (*dinero es dinero, ya saben eh*).
 
-Al igual que en otros exámenes, eLearnSecurity te da 14 días para rendir el examen: 7 días para explotar el laboratorio, donde tendrás que cumplir con los ***3 requisitos mínimos pero no suficientes para aprobar***. Por otro lado, se te darán 7 días más para escribir un reporte profesional de vulnerabilidades, el cual tendrás que subir a la plataforma para que te evalúen. 
+Al igual que en otros exámenes, eLearnSecurity te da 14 días para rendir el examen: 7 días para explotar el laboratorio, donde tendrás que cumplir con los **3 requisitos mínimos pero no suficientes para aprobar**. Por otro lado, se te darán 7 días más para escribir un reporte profesional de vulnerabilidades, el cual tendrás que subir a la plataforma para que te evalúen. 
 
 ## Requerimientos mínimos pero no suficientes 🗿
 
@@ -27,7 +27,7 @@ A la hora de arrancar el examen, eLearnSecurity te una carta de engagement, dond
 2. Lograr ejecución remota de comandos mediante la explotación de un servicio interno en la máquina.
 3. Lograr ejecución remota de comandos mediante la explotación de un servicio interno en la máquina (debes explotar otra vulnerabilidad).
 
-Es importante que tengas en cuenta que son ********************************no suficientes******************************** para aprobar, por lo que te recomiendo ser bien busquilla al rendir el examen.
+Es importante que tengas en cuenta que son **no suficientes** para aprobar, por lo que te recomiendo ser bien busquilla al rendir el examen.
 
 ## Requerimientos 🐱‍👤
 
@@ -102,9 +102,9 @@ Buenos en base a mi experiencia mis recomendaciones de cara al examen son las si
 
 Bueno, ya llegando al final de este post, puedo decirles que este examen no fue la mejor experiencia que he tenido, de hecho la pasé bastante mal ya que reprobé en mi primer intento.
 
-****Día 0: Me entran las ganas de rendir el examen****
+**Día 0: Me entran las ganas de rendir el examen**
 
-Todo empieza en Marzo 2023, cuando le digo a mi amigo [H4rr1z0n](https://github.com/Harrizzon): *****“mano, voy a sacar el eWPTXv2 en un mes”*****. Y así fue, sólo que lo saqué en un mes y medio.
+Todo empieza en Marzo 2023, cuando le digo a mi amigo [H4rr1z0n](https://github.com/Harrizzon): *“mano, voy a sacar el eWPTXv2 en un mes”*. Y así fue, sólo que lo saqué en un mes y medio.
 
 Para empezar a prepararme agarré todos los recursos de PortSwigger que se relacionaban con las vulnerabilidades que entrarían en el examen.
 
@@ -114,7 +114,7 @@ Otra cosa que me sirvió mucho fue montarme mini aplicaciones vulnerables, a mod
 
 Ya con esto, el resto lo dejé medio a la vida y me apoyé más de la experiencia previa que había ido adquiriendo en el trabajo y en otros laboratorios que había hecho en HackTheBox y TryHackme (más de 150 máquinas).
 
-****************************************Día D: Experiencia y resultados del examen****************************************
+**Día D: Experiencia y resultados del examen**
 
 En total, resolviendo el laboratorio en el primer intento me demoré 3 días. En este plazo ya tenía los 3 requisitos mínimos pero no suficientes para aprobar, junto con otro puñado de vulnerabilidades, medias y bajas, para reportar.
 
@@ -124,7 +124,7 @@ En primera instancia no entendía por qué, me sentí super frustrado, confundid
 
 Entonces, arranqué el laboratorio de nuevo, encontré estas SQLi, las documenté y volví a mandar el reporte.
 
-Habiendo hecho esto, me quedé un poco enojado, ya que los casos que me faltaron de SQLi, correspondían a casos de la vulnerabilidad en los que no se podía volcar ningún tipo de información del servidor, lo cual me hacía pensar que podían ser fácilmente descartables como falsos positivos, y/o también considerarse como si************n sentidos************ dentro del examen. Pero estoy seguro de que lo digo más por lo emputado que quedé, que por lo que fue 🦆 
+Habiendo hecho esto, me quedé un poco enojado, ya que los casos que me faltaron de SQLi, correspondían a casos de la vulnerabilidad en los que no se podía volcar ningún tipo de información del servidor, lo cual me hacía pensar que podían ser fácilmente descartables como falsos positivos, y/o también considerarse como *sin sentidos* dentro del examen. Pero estoy seguro de que lo digo más por lo emputado que quedé, que por lo que fue 🦆 
 
 Pero bueno, a fin de cuentas lo medio entendí, hice las pases con eLearn, sobre todo considerando que las vulnerabilidades no eran fáciles de encontrar ni de explotar. 
 
