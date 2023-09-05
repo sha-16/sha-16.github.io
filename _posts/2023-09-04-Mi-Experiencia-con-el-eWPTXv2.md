@@ -29,7 +29,7 @@ A la hora de arrancar el examen, eLearnSecurity te una carta de engagement, dond
 
 Es importante que tengas en cuenta que son **no suficientes** para aprobar, por lo que te recomiendo ser bien busquilla al rendir el examen.
 
-## Requerimientos 🐱‍👤
+## Requisitos 🐱‍👤
 
 Bueno, los requerimientos para esta certificación examen son bastante amplios. Así que iré detallándolos uno por uno.
 
