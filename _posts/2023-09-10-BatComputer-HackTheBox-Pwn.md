@@ -45,7 +45,7 @@ Para validar esto, realizamos una prueba con la herramienta `gdb-gef`.
 1. Primeramente, creamos una cadena de `137 bytes`. 
 2. Luego arrancamos el programa y seleccionamos la opción `2`, donde primero colocamos la contraseña del usuario. 
 3. Posterior a esto, el programa solicita los “comandos de navegación” donde ingresamos la cadena de `137 bytes` con el objetivo de sobrescribir la memoria que tiene asignada la variable `nav_command`, lo cual corresponde a `76 bytes`.
-4. Hecho esto, el programa vuelve a solicitarle una opción al usuario, lo cual sólo ocurre porque este se encuentra en un bucle infinito. Para forzar al programa a retornar debemos colocar un número que no corresponda a `1`, o `2`. De esta manera, como la dirección de retorno ha sido sobrescrita, el programa arrojará un error `Segmentation fault` ************************************y nos permitirá validar la existencia del BoF. 
+4. Hecho esto, el programa vuelve a solicitarle una opción al usuario, lo cual sólo ocurre porque este se encuentra en un bucle infinito. Para forzar al programa a retornar debemos colocar un número que no corresponda a `1`, o `2`. De esta manera, como la dirección de retorno ha sido sobrescrita, el programa arrojará un error `Segmentation fault` y nos permitirá validar la existencia del BoF. 
 
 ![Untitled](/assets/img/htb/pwn/BatComputer/Untitled%204.png)
 
