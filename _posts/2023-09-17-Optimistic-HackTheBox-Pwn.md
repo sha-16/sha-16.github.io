@@ -101,7 +101,7 @@ if (64 < (int)length_user_name) {
 
 El nombre del usuario tiene reservado `96 bytes` por lo que, en primera instancia, no podríamos generar un length mayor que nos permitiese desbordar el buffer.
 
-Otro punto importante a considerar, es que cuando el nombre del usuario es solicitado, el length se formatea de data de tipo *Integer* a *Unsigned Long*.
+Otro punto importante a considerar, es que cuando el nombre del usuario es solicitado, el length de este se formatea de *Integer* a *Unsigned Long*.
 
 ```c
 printf("Name: ");
