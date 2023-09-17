@@ -101,23 +101,23 @@ if (64 < (int)length_user_name) {
 
 El nombre del usuario tiene reservado `96 bytes` por lo que, en primera instancia, no podríamos generar un length mayor que nos permitiese desbordar el buffer.
 
-Otro punto importante a considerar, es que cuando el nombre del usuario es solicitado, el length se formatea de data de tipo ********Integer******** a ****Unsigned Long****.
+Otro punto importante a considerar, es que cuando el nombre del usuario es solicitado, el length se formatea de data de tipo *Integer* a *Unsigned Long*.
 
 ```c
 printf("Name: ");
 user_input = read(0,user_input_name,(ulong)length_user_name);
 ```
 
-Considerando los dos puntos mencionados anteriormente, la conclusión es que podemos explotar un ****************Integer Overflow****************:
+Considerando los dos puntos mencionados anteriormente, la conclusión es que podemos explotar un *Integer Overflow*:
 
-- Se puede introducir un dato ********Integer******** menor a 0.
-- El dato *******Integer******* se formatea a **************Unsigned Long**************.
+- Se puede introducir un dato *Integer* menor a 0.
+- El dato *Integer* se formatea a *Unsigned Long*.
 
-Para dar más contexto, los lenguajes de programación permiten definir datos de tipo ********Integers********. Este tipo de datos tienen un límite numérico (tanto superior como inferior), el cual, si llega a ser sobrepasado, provocará que el programa entregue un resultado con un valor erróneo. Por ejemplo, en lenguaje **C**: el número *Integer* límite es `2147483647`. Si nosotros tratamos de hacer un `print` de `2147483648`, el programa entregará por resultado `-2147483648`, lo cual es erróneo debido a que se ha generado un *********overflow********* del entero.
+Para dar más contexto, los lenguajes de programación permiten definir datos de tipo *Integers*. Este tipo de datos tienen un límite numérico (tanto superior como inferior), el cual, si llega a ser sobrepasado, provocará que el programa entregue un resultado con un valor erróneo. Por ejemplo, en lenguaje **C**: el número *Integer* límite es `2147483647`. Si nosotros tratamos de hacer un `print` de `2147483648`, el programa entregará por resultado `-2147483648`, lo cual es erróneo debido a que se ha generado un *overflow* del entero.
 
 ![Untitled](/assets/img/htb/pwn/Optimistic/Untitled%202.png)
 
-Otro punto a considerar es que, si nosotros formateamos un ********Integer******** con valor negativo, como `-1` a *****Unsigned Long*****, este cambiará su valor al límite superior de datos **************Unsigned Long,************** que corresponde a `18446744073709551615 (0xffffffffffffffff)`. Esto ocurre porque los valores *********Unsigned********* siempre van del `0` en adelante (hasta su respectivo límite).
+Otro punto a considerar es que, si nosotros formateamos un *Integer* con valor negativo, como `-1` a *Unsigned Long*, este cambiará su valor al límite superior de datos *Unsigned Long,* que corresponde a `18446744073709551615 (0xffffffffffffffff)`. Esto ocurre porque los valores *Unsigned* siempre van del `0` en adelante (hasta su respectivo límite).
 
 ![Untitled](/assets/img/htb/pwn/Optimistic/Untitled%203.png)
 
@@ -127,9 +127,9 @@ Como se puede ver a continuación, el programa acepta correctamente el *length* 
 
 ![Untitled](/assets/img/htb/pwn/Optimistic/Untitled%204.png)
 
-Ahora, por ejemplo, si metemos `2147483648` en el ******length****** del nombre, también estaríamos explotando el desbordamiento de enteros, lo cual de igual forma nos permitirá desbordar el buffer del programa, ya que el espacio asignado en la función `read` será mayor al espacio reservado para la variable de `96 bytes` donde se almacena el nombre ingresado.
+Ahora, por ejemplo, si metemos `2147483648` en el *length* del nombre, también estaríamos explotando el desbordamiento de enteros, lo cual de igual forma nos permitirá desbordar el buffer del programa, ya que el espacio asignado en la función `read` será mayor al espacio reservado para la variable de `96 bytes` donde se almacena el nombre ingresado.
 
-En la siguiente imagen, se puede ver que se ingresa el número `2147483648` en el *******length******* del nombre. Es importante recordarles que, por el ******************Integer Overflow******************, ************************************este se almacenará como `-2147483648`, el cual posteriormente al ser convertido a **********Unsigned Long********** dará como resultado un número “erróneo” mucho mayor a `0` y a `96 bytes`. 
+En la siguiente imagen, se puede ver que se ingresa el número `2147483648` en el *length* del nombre. Es importante recordarles que, por el *Integer Overflow*, este se almacenará como `-2147483648`, el cual posteriormente al ser convertido a *Unsigned Long* dará como resultado un número “erróneo” mucho mayor a `0` y a `96 bytes`. 
 
 ![Untitled](/assets/img/htb/pwn/Optimistic/Untitled%205.png)
 
@@ -139,7 +139,7 @@ Primeramente, tenemos que tratar de identificar el `offset`, por lo que utilizam
 
 ![Untitled](/assets/img/htb/pwn/Optimistic/Untitled%206.png)
 
-Posterior a esto arrancamos el programa, explotamos el ************Integer Overflow************ y colocamos nuestra cadena de `150 bytes` para desbordar el buffer y encontrar el `offset`:
+Posterior a esto arrancamos el programa, explotamos el *Integer Overflow* y colocamos nuestra cadena de `150 bytes` para desbordar el buffer y encontrar el `offset`:
 
 ![Untitled](/assets/img/htb/pwn/Optimistic/Untitled%207.png)
 
