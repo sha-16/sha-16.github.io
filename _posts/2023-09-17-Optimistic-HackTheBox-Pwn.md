@@ -113,7 +113,7 @@ Considerando los dos puntos mencionados anteriormente, la conclusión es que pod
 - Se puede introducir un dato *Integer* menor a 0.
 - El dato *Integer* se formatea a *Unsigned Long*.
 
-Para dar más contexto, los lenguajes de programación permiten definir datos de tipo *Integers*. Este tipo de datos tienen un límite numérico (tanto superior como inferior), el cual, si llega a ser sobrepasado, provocará que el programa entregue un resultado con un valor erróneo. Por ejemplo, en lenguaje **C**: el número *Integer* límite es `2147483647`. Si nosotros tratamos de hacer un `print` de `2147483648`, el programa entregará por resultado `-2147483648`, lo cual es erróneo debido a que se ha generado un *overflow* del entero.
+Para dar más contexto, los lenguajes de programación permiten definir datos de tipo *Integers*. Este tipo de datos tienen un límite numérico (tanto superior como inferior), el cual, si llega a ser sobrepasado, provocará que el programa entregue un resultado con un valor erróneo. Por ejemplo, en lenguaje **C**: el número *Integer* límite es `2147483647`. Si nosotros tratamos de hacer un `print` de `2147483648`, el programa entregará `-2147483648`, lo cual es erróneo debido a que se ha generado un *overflow* del entero.
 
 ![Untitled](/assets/img/htb/pwn/Optimistic/Untitled%202.png)
 
