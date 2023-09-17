@@ -129,7 +129,7 @@ Como se puede ver a continuación, el programa acepta correctamente el *length* 
 
 Ahora, por ejemplo, si metemos `2147483648` en el *length* del nombre, también estaríamos explotando el desbordamiento de enteros, lo cual de igual forma nos permitirá desbordar el buffer del programa, ya que el espacio asignado en la función `read` será mayor al espacio reservado para la variable de `96 bytes` donde se almacena el nombre ingresado.
 
-En la siguiente imagen, se puede ver que se ingresa el número `2147483648` en el *length* del nombre. Es importante recordarles que, por el *Integer Overflow*, este se almacenará como `-2147483648`, el cual posteriormente al ser convertido a *Unsigned Long* dará como resultado un número “erróneo” mucho mayor a `0` y a `96 bytes`. 
+En la siguiente imagen, se puede ver que se ingresa el número `2147483648` en el *length* del nombre. Es importante recordarles que, por el *Integer Overflow*, este se almacenará como `-2147483648`, el cual posteriormente al ser convertido a *Unsigned Long* dará como resultado un número “erróneo” mucho mayor a `0` y a `96`. 
 
 ![Untitled](/assets/img/htb/pwn/Optimistic/Untitled%205.png)
 
