@@ -18,7 +18,7 @@ En esta ocasión, les traigo la resolución de un BoF en un binario de 64-bit. E
 
 Como se visualiza en imagen, el programa te exfiltra directamente una dirección de memoria, la cual por ahora desconocemos.
 
-Para empezar, es importante chequear si es que el programa cuenta con algún tipo de protección jodido de evadir:
+Para empezar, es importante chequear si es que el programa cuenta con algún tipo de protección jodida de evadir:
 
 ![Untitled](/assets/img/htb/pwn/Optimistic/Untitled%201.png)
 
