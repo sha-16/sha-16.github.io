@@ -181,7 +181,7 @@ Dado esto, utilizamos el siguiente `shellcode`, público en [ExploitDB](https://
 
 ![Untitled](/assets/img/htb/pwn/Optimistic/Untitled%2011.png)
 
-Teniendo esto en consideración, desarrollamos el siguiente exploit, el cual se nos permite explotar binario de forma local con éxito: 
+Teniendo esto en consideración, desarrollamos el siguiente exploit, el cual nos permite explotar binario de forma local con éxito: 
 
 ```python
 #!/usr/bin/env python3
