@@ -150,6 +150,10 @@ if __name__ == '__main__':
     p.interactive()
 ```
 
-Ya ejecutando el exploit logramos obtener la `flag` del desafío correctamente:
+Ya ejecutando el exploit, logramos obtener la `flag` del desafío correctamente:
 
 ![Untitled](/assets/img/htb/pwn/Reg/Untitled%209.png)
+
+### References
+
+- gets(7) - Linux Manual Page: https://man7.org/linux/man-pages/man3/gets.3.html
