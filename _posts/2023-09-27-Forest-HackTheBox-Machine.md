@@ -55,7 +55,7 @@ kerbrute userenum --dc 10.10.10.161 -d htb.local users.txt
 
 Sabiendo esto, con el listado de usuarios en mano, ejecuto un ataque `AS-REPRoasting`, donde se identificó que el usuario `svc-alfresco` tiene habilitado el privilegio `UF_DONT_REQUIRE_PREAUTH`.
 
-Este privilegio permite efectuar una solicitud del tipo `KRB_AS_REQ` al servicio `Kerberos`, sin previa autenticación del usuario, la cual respondida con `KRB_AS_REP`. Esta respuesta como tal, entrega el `Ticket GRanting Ticket (TGT)` del usuario, el cual posteriormente puede ser crackeado. De ahí surge el nombre del ataque.
+Este privilegio permite efectuar una solicitud del tipo `KRB_AS_REQ` al servicio `Kerberos`, sin previa autenticación del usuario, la cual respondida con `KRB_AS_REP`. Esta respuesta como tal, entrega el `Ticket Granting Ticket (TGT)` del usuario, el cual posteriormente puede ser crackeado. De ahí surge el nombre del ataque.
 
 En este caso, logramos identificar que el ataque se efectúa exitosamente sobre el usuario `svc-alfresco`.
 
