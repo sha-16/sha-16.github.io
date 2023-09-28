@@ -15,7 +15,7 @@ Como podrán ver a continuación, específico el parámetro `-sS` con el objetiv
 
 Lo otro es que configuré el `--min-rate` en `3000` con la idea de no enviar una cantidad menor a `3000` paquetes por segundo.
 
-*Advertencia:* No aconsejo lanzar este escaneo en entornos productivos debido a que es ultra ruidoso y agresivo. En este caso lo estoy lanzando en un entorno controlado de `HackTheBox`.
+**Advertencia:** No aconsejo lanzar este escaneo en entornos productivos debido a que es ultra ruidoso y agresivo. En este caso lo estoy lanzando en un entorno controlado de `HackTheBox`.
 
 ```bash
 nmap -v -sS --min-rate 3000 -n -Pn -p- 10.10.10.161 -oG tcp_ports.txt
