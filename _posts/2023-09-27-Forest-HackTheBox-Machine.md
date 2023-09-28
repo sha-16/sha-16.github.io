@@ -23,17 +23,19 @@ nmap -v -sS --min-rate 3000 -n -Pn -p- 10.10.10.161 -oG tcp_ports.txt
 
 ![Untitled](/assets/img/htb/machines/Forest/Untitled%201.png)
 
-Posterior a ello, agarramos todos los puertos identificados, y lanzo un escaneo de servicios, con el objetivo de detectar nombres y versiones que puedan tener vulnerabilidades conocidas publicamente.
+Posterior a ello, nuevamente utilizando `nmap`, lanzo un escaneo de enumeración a todos los puertos abiertos con el objetivo de identificar detalles más específicos acerca de los servicios que se encuentran corriendo.
+
+En base al resultado obtenido, tendré mucho más contexto para saber bien por dónde atacar y/o probar cosas.
 
 ```bash
 map -v -sCV -p53,88,135,139,389,445,464,593,636,3268,3269,5985,9389,47001,49664,49665,49666,49667,49671,49676,49677,49684,49706,49969 10.10.10.161 -oN port_scan.txt
 ```
 
-En el resultado del escaneo, identifico varios servicios de interés, entre ellos: WinRPC, SMB, LDAP, WinRM y Kerberos. Sin embargo, ya con sólo ver al servicio `Kerberos`, tengo claro de que estoy ante un entorno de *Active Directory*, por lo que ya sé más o menos cómo enforcar mi estrategia de ataque.
+En el resultado del escaneo, identifico varios servicios de interés, entre ellos: WinRPC, SMB, LDAP, WinRM y Kerberos. Sin embargo, ya con sólo ver al servicio `Kerberos`, tengo claro de que estoy ante un entorno de *Active Directory*, por lo que ya sé más o menos cómo enforcar mi estrategia de ataque y enumeración.
 
 ![Untitled](/assets/img/htb/machines/Forest/Untitled%202.png)
 
-Al enumerar el servicio WinRPC, detectó que este posee habilitado el *null session*, lo que me da la posibilidad de acceder y recopilar información importante del dominio.
+Al realizar una prueba sobre el servicio WinRPC, detectó que este posee habilitado el *null session*, lo que me da la posibilidad de acceder y recopilar información importante del dominio.
 
 ![Untitled](/assets/img/htb/machines/Forest/Untitled%203.png)
 
@@ -45,7 +47,7 @@ rpcclient -N -U '' 10.10.10.161 -c 'enumdomusers' | grep -oP '\[.*?\]' | grep -v
 
 ![Untitled](/assets/img/htb/machines/Forest/Untitled%204.png)
 
-Posterior a esto, con la herramienta `kerbrute` valido si estos usuarios son válidos y se encuentran correctamente registrados en el dominio.
+Posterior a esto, con la herramienta `kerbrute` puedo verificar si estos usuarios son realmente válidos y se encuentran registrados en el dominio.
 
 ```bash
 kerbrute userenum --dc 10.10.10.161 -d htb.local users.txt
@@ -55,7 +57,7 @@ kerbrute userenum --dc 10.10.10.161 -d htb.local users.txt
 
 Sabiendo esto, con el listado de usuarios en mano, ejecuto un ataque `AS-REPRoasting`, donde se identificó que el usuario `svc-alfresco` tiene habilitado el privilegio `UF_DONT_REQUIRE_PREAUTH`.
 
-Este privilegio permite efectuar una solicitud del tipo `KRB_AS_REQ` al servicio `Kerberos`, sin previa autenticación del usuario, la cual respondida con `KRB_AS_REP`. Esta respuesta como tal, entrega el `Ticket Granting Ticket (TGT)` del usuario, el cual posteriormente puede ser crackeado. De ahí surge el nombre del ataque.
+Este privilegio permite efectuar una solicitud del tipo `KRB_AS_REQ` al servicio `Kerberos`, sin previa autenticación del usuario, la cual es respondida con `KRB_AS_REP`. Esta respuesta como tal, entrega el `Ticket Granting Ticket (TGT)` del usuario, el cual posteriormente puede ser crackeado. De ahí surge el nombre del ataque.
 
 En este caso, logramos identificar que el ataque se efectúa exitosamente sobre el usuario `svc-alfresco`.
 
@@ -67,11 +69,11 @@ impacket-GetNPUsers -no-pass -usersfile users.txt htb.local/
 
 Un atacante puede obtener la contraseña de un usuario crackeando un `Ticket Granting Ticket (TGT)`, debido a que parte de este se encuentra cifrado con la misma contraseña.
 
-En base a esto, crackeo el `TGT` obtenido, lo cual me permite tener credenciales del entorno en mano y hacer pruebas con ello.
+En base a esto, crackeo el `TGT` obtenido, lo cual me permite tener credenciales en el entorno y hacer pruebas con ello.
 
 ![Untitled](/assets/img/htb/machines/Forest/Untitled%207.png)
 
-Una vez obtenidas las credenciales, utilizando `crackmapexec`, valido que el usuario `svc-alfresco` es parte del grupo `Remote Management Users` lo cual me permite conectarme y ejecutar comandos de manera directa en el servidor, a través del servicio `WinRM`.
+Una vez obtenidas las credenciales, utilizando `crackmapexec`, valido que el usuario `svc-alfresco` es parte del grupo `Remote Management Users` lo cual me permite conectarme y ejecutar comandos en el servidor, a través del servicio `WinRM`.
 
 ```bash
 crackmapexec winrm 10.10.10.161 -u 'svc-alfresco' -p 's3rvice'
@@ -110,7 +112,7 @@ Para ello, previamente, listo todos los grupos que puedan ser de utilidad para p
 
 Entre estos identificó a `Exchange Windows Permissions`, el cual corresponde a un grupo de *Active Directory* que, de manera predeterminada posee habilitado el permiso `WriteDACL`, lo cual me permitiría asignar ciertos permisos al resto de usuarios en el dominio, entre ellos `DCSync`.
 
-- *“`DCSync` es una técnica que se utiliza para pedir las claves de cualquier usuario a un controlador de dominio, a través del protocolo de replicación `DRSUAPI`.” - Tarlogic*
+> *“`DCSync` es una técnica que se utiliza para pedir las claves de cualquier usuario a un controlador de dominio, a través del protocolo de replicación `DRSUAPI`.” - Tarlogic*
 
 Por lo general, en entornos de AD donde se encuentra se instalado `Microsoft Exchange`, suelen haber una cantidad mayor de usuarios en el grupo `Exchange Windows Permissions`. 
 
