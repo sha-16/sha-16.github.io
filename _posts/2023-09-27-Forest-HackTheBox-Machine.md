@@ -7,7 +7,7 @@ tags: [AS-REP Roasting, Abusing Account Operators, Abusing DCSync, Abusing Excha
 
 Buenas a tod@s, el día de hoy les traigo un `write-up` de la máquina `Forest` de `HackTheBox`.  
 
-![Untitled](Forest/Untitled.png)
+![Untitled](/assets/img/htb/machines/Forest/Untitled.png)
 
 Como en cada `write-up`, lo primero hago es lanzar un escaneo de puertos con `nmap` con el objetivo de identificar potenciales vías de ataque. 
 
@@ -21,7 +21,7 @@ Lo otro es que configuré el `--min-rate` en `3000` con la idea de no enviar una
 nmap -v -sS --min-rate 3000 -n -Pn -p- 10.10.10.161 -oG tcp_ports.txt
 ```
 
-![Untitled](Forest/Untitled%201.png)
+![Untitled](/assets/img/htb/machines/Forest/Untitled%201.png)
 
 Posterior a ello, agarramos todos los puertos identificados, y lanzo un escaneo de servicios, con el objetivo de detectar nombres y versiones que puedan tener vulnerabilidades conocidas publicamente.
 
