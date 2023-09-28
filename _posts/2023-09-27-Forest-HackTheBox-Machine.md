@@ -87,7 +87,7 @@ evil-winrm -i 10.10.10.161 -u 'svc-alfresco' -p 's3rvice'
 
 ![Untitled](/assets/img/htb/machines/Forest/Untitled%209.png)
 
-Posterior a esto, ejecuto la herramienta `bloodhound-python` con la cual enumero gran parte de la configuración existente en el directorio activo, a partir de las credenciales obtenidas:
+Posterior a esto, ejecuto la herramienta `bloodhound-python` con la cual enumero gran parte de la configuración existente en el directorio activo, a partir de las credenciales obtenidas.
 
 ```bash
 bloodhound-python -u 'svc-alfresco' -p 's3rvice' -d htb.local --auth-method ntlm -ns 10.10.10.161 -c all
@@ -95,7 +95,7 @@ bloodhound-python -u 'svc-alfresco' -p 's3rvice' -d htb.local --auth-method ntlm
 
 ![Untitled](/assets/img/htb/machines/Forest/Untitled%2010.png)
 
-Como se observa en la imagen, el usuario `svc-alfresco` pertenece al grupo `Service Accounts`, el cual es miembro del grupo `Privileged IT Accounts`, el que a su vez es miembro del grupo `Account Operators`:
+Como se observa en la imagen, el usuario `svc-alfresco` pertenece al grupo `Service Accounts`, el cual es miembro del grupo `Privileged IT Accounts`, el que a su vez es miembro del grupo `Account Operators`.
 
 El grupo `Account Operators` tiene dos cualidades particulares de las cuales me puedo aprovechar como atacante:
 
