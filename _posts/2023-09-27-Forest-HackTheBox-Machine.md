@@ -71,7 +71,7 @@ En base a esto, crackeo el `TGT` obtenido, lo cual me permite tener credenciales
 
 ![Untitled](/assets/img/htb/machines/Forest/Untitled%207.png)
 
-Una vez obtenidas las credenciales, utilizando `crackmapexec`, valido que el usuario `svc-alfresco` es parte del grupo `Remote Management Users` lo cual me permite conectarme ejecutar comandos de manera directa en el servidor, a través del servicio `WinRM`.
+Una vez obtenidas las credenciales, utilizando `crackmapexec`, valido que el usuario `svc-alfresco` es parte del grupo `Remote Management Users` lo cual me permite conectarme y ejecutar comandos de manera directa en el servidor, a través del servicio `WinRM`.
 
 ```bash
 crackmapexec winrm 10.10.10.161 -u 'svc-alfresco' -p 's3rvice'
