@@ -1,6 +1,6 @@
 ---
 title: Linux Privilege Escalation ❤
-author: sha-16
+author: sha16
 categories: [linux, privesc]
 tags: [linux, cheat-sheet, privesc] 
 ---

@@ -5,10 +5,6 @@
   icon: 'fab fa-github'
   url: 'https://github.com/sha-16'
 -
-  type: twitter
-  icon: 'fab fa-twitter'
-  url: 'https://twitter.com/elonmusk'
--
   type: youtube
   icon: 'fab fa-youtube'
   url: 'https://www.youtube.com/channel/UCZrqUzohXiWRaJ7YdhVpZqA/videos'

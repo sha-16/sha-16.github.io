@@ -1,6 +1,6 @@
 ---
 title: Blueprint - Write up (TryHackMe)
-author: sha-16
+author: sha16
 date: 2021-10-23 23:40:00 -03000 
 categories: [TryHackMe]
 tags: [write-up, windows]

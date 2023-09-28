@@ -1,6 +1,6 @@
 ---
 title: Bat Computer - Pwn Challenge (HTB) ❤
-author: sha-16
+author: sha16
 categories: [linux, binary exploitation, htb]
 tags: [linux, pwn, htb, 64-bit] 
 ---

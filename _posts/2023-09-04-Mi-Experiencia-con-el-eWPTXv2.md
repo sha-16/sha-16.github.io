@@ -1,6 +1,6 @@
 ---
 title: Mi experiencia con el eWPTXv2 🏴‍☠️
-author: sha-16
+author: sha16
 categories: [reviews, certifications, web, elearnsecurity]
 tags: [reviews, certifications, web, elearnsecurity] 
 ---
