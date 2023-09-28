@@ -110,7 +110,7 @@ Para ello, previamente, listo todos los grupos que puedan ser de utilidad para p
 
 Entre estos identificó a `Exchange Windows Permissions`, el cual corresponde a un grupo de *Active Directory* que, de manera predeterminada posee habilitado el permiso `WriteDACL`, lo cual me permitiría asignar ciertos permisos al resto de usuarios en el dominio, entre ellos `DCSync`.
 
-- *“`DCSync` es una técnica que se utiliza para pedir las claves de cualquier usuario a un controlador del dominio, a través del protocolo de replicación `DRSUAPI`.” - Tarlogic*
+- *“`DCSync` es una técnica que se utiliza para pedir las claves de cualquier usuario a un controlador de dominio, a través del protocolo de replicación `DRSUAPI`.” - Tarlogic*
 
 Por lo general, en entornos de AD donde se encuentra se instalado `Microsoft Exchange`, suelen haber una cantidad mayor de usuarios en el grupo `Exchange Windows Permissions`. 
 
