@@ -89,7 +89,7 @@ impacket-psexec 'active.htb/Administrator:Ticketmaster1968@10.10.10.100'
 
 ![Untitled](/assets/img/htb/machines/Active/Untitled%2011.png)
 
-### References
+### Referencias
 
 - Exploiting GPP SYSVOL (Groups.xml): [https://vk9-sec.com/exploiting-gpp-sysvol-groups-xml/](https://vk9-sec.com/exploiting-gpp-sysvol-groups-xml/)
 - Kerberoasting Attacks: [https://www.crowdstrike.com/cybersecurity-101/kerberoasting/](https://www.crowdstrike.com/cybersecurity-101/kerberoasting/)
