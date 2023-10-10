@@ -2,7 +2,7 @@
 title: Sauna - Write Up (HTB) ❤
 author: sha16
 categories: [HackTheBox, Active Directory]
-tags: [AS-REP Roasting, Abusing DCSync, ActiveDirectory, Pass-the-hash (PtH), Windows]
+tags: [AS-REP Roasting, Abusing DCSync, Pass-the-hash (PtH), Windows]
 ---
 
 Buenas a tod@s, el día de hoy les traigo un `write-up` de la máquina `Sauna` de `HackTheBox`.  
