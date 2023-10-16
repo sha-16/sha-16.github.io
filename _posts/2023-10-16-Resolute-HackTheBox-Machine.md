@@ -89,7 +89,7 @@ En este punto, hemos encontrado el vector de escalada de privilegios, debido a q
 
 ![Untitled](/assets/img/htb/machines/Resolute/Untitled%2013.png)
 
-Por lo tanto, dado que tenemos control total del servicio, podemos crear una DLL maliciosa con la herramienta `MSFvenom`, la cual nos está compilada para enviarnos una *reverse shell* a nuestra máquina, al puerto `443` en escucha. 
+Por lo tanto, dado que tenemos control total del servicio, podemos crear una DLL maliciosa con la herramienta `MSFvenom`, la cual está compilada para enviarnos una *reverse shell* a nuestra máquina, al puerto `443` en escucha. 
 
 Es importante destacar que esta DLL, sobre la cual tenemos control, se ejecuta en un contexto de máximos privilegios en el servidor.
 
