@@ -2,7 +2,7 @@
 title: Forest - Write Up (HTB) ❤
 author: sha16
 categories: [HackTheBox, Active Directory]
-tags: [AS-REP Roasting, Abusing Account Operators, Abusing DCSync, Abusing Exchange Windows Permissions, Abusing WriteAcl Permissions, User Enum via RPC, Windows]
+tags: [Active Directory, AS-REP Roasting, Abusing Account Operators, Abusing DCSync, Abusing Exchange Windows Permissions, Abusing WriteAcl Permissions, User Enum via RPC, Windows]
 ---
 
 Buenas a tod@s, el día de hoy les traigo un `write-up` de la máquina `Forest` de `HackTheBox`.  

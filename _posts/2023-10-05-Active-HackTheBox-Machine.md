@@ -2,7 +2,7 @@
 title: Active - Write Up (HTB) ❤
 author: sha16
 categories: [HackTheBox, Active Directory]
-tags: [Kerberoasting, Decrypting cpassword (Groups.xml), Windows]
+tags: [Active Directory, Kerberoasting, Decrypting cpassword (Groups.xml), Windows]
 ---
 
 Buenas a tod@s, el día de hoy les traigo un `write-up` de la máquina `Active` de `HackTheBox`.  

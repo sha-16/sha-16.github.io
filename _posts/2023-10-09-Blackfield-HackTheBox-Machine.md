@@ -2,7 +2,7 @@
 title: Blackfield - Write Up (HTB) ❤
 author: sha16
 categories: [HackTheBox, Active Directory]
-tags: [AS-REP Roasting, Abusing Backup Operators, Abusing ForceChangePassword, ActiveDirectory, Dumping LSASS through a dump file (Pypykatz)]
+tags: [AS-REP Roasting, Abusing Backup Operators, Abusing ForceChangePassword, Active Directory, Dumping LSASS through a dump file (Pypykatz)]
 ---
 
 Buenas a tod@s, el día de hoy les traigo un `write-up` de la máquina `Blackfield` de `HackTheBox`.  
